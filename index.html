@@ -1,0 +1,548 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>[Your Business Name] — Wash & Fold, Dry Cleaning & Pickup Delivery</title>
+<meta name="description" content="Friendly, reliable laundry service. Wash & fold, dry cleaning, and free pickup & delivery in [Your City]. Family-owned and trusted by your neighbors.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Nunito+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --cream:#FBF6EC;
+    --cream-deep:#F3EAD7;
+    --ink:#27313B;
+    --ink-soft:#55636F;
+    --sky:#3E8FB0;
+    --sky-deep:#2C6E89;
+    --sun:#F2A65A;
+    --sun-soft:#FAD9A8;
+    --leaf:#7BA05B;
+    --white:#FFFFFF;
+    --shadow:0 18px 40px -22px rgba(39,49,59,.45);
+    --radius:22px;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{
+    font-family:'Nunito Sans',sans-serif;
+    background:var(--cream);
+    color:var(--ink);
+    line-height:1.7;
+    overflow-x:hidden;
+  }
+  h1,h2,h3{font-family:'Fraunces',serif;line-height:1.15;font-weight:600}
+  a{color:inherit;text-decoration:none}
+  .wrap{max-width:1140px;margin:0 auto;padding:0 24px}
+  .accent{color:var(--sky-deep)}
+
+  /* ---------- Header ---------- */
+  header{
+    position:sticky;top:0;z-index:50;
+    background:rgba(251,246,236,.85);
+    backdrop-filter:blur(10px);
+    border-bottom:1px solid var(--cream-deep);
+  }
+  .nav{display:flex;align-items:center;justify-content:space-between;padding:18px 24px;max-width:1140px;margin:0 auto}
+  .logo{display:flex;align-items:center;gap:12px;font-family:'Fraunces',serif;font-size:1.4rem;font-weight:700}
+  .logo .bubble{
+    width:42px;height:42px;border-radius:50%;
+    background:linear-gradient(140deg,var(--sky),var(--sky-deep));
+    display:grid;place-items:center;color:var(--white);font-size:1.3rem;
+    box-shadow:0 6px 14px -6px var(--sky-deep);
+  }
+  .nav-links{display:flex;gap:34px;align-items:center;font-weight:600;font-size:.98rem}
+  .nav-links a{color:var(--ink-soft);transition:color .2s}
+  .nav-links a:hover{color:var(--sky-deep)}
+  .btn{
+    display:inline-block;background:var(--sun);color:var(--ink);
+    padding:13px 26px;border-radius:999px;font-weight:700;
+    font-family:'Nunito Sans',sans-serif;border:none;cursor:pointer;
+    box-shadow:0 10px 22px -10px rgba(242,166,90,.9);
+    transition:transform .18s ease, box-shadow .18s ease;
+    font-size:1rem;
+  }
+  .btn:hover{transform:translateY(-2px);box-shadow:0 14px 26px -10px rgba(242,166,90,1)}
+  .btn-ghost{background:transparent;border:2px solid var(--sky-deep);color:var(--sky-deep);box-shadow:none}
+  .btn-ghost:hover{background:var(--sky-deep);color:var(--white)}
+  .nav-toggle{display:none;background:none;border:none;font-size:1.6rem;cursor:pointer;color:var(--ink)}
+
+  /* ---------- Hero ---------- */
+  .hero{position:relative;padding:90px 0 110px;overflow:hidden}
+  .hero::before{
+    content:"";position:absolute;inset:0;
+    background:
+      radial-gradient(circle at 80% 20%,var(--sun-soft) 0,transparent 45%),
+      radial-gradient(circle at 15% 80%,#CFE6EE 0,transparent 50%);
+    opacity:.7;z-index:0;
+  }
+  .hero .wrap{position:relative;z-index:1;display:grid;grid-template-columns:1.05fr .95fr;gap:60px;align-items:center}
+  .hero-eyebrow{
+    display:inline-block;background:var(--white);color:var(--sky-deep);
+    font-weight:700;font-size:.85rem;letter-spacing:.08em;text-transform:uppercase;
+    padding:8px 18px;border-radius:999px;margin-bottom:24px;box-shadow:var(--shadow);
+  }
+  .hero h1{font-size:clamp(2.6rem,5vw,4rem);margin-bottom:22px}
+  .hero h1 em{font-style:normal;color:var(--sky-deep);position:relative}
+  .hero h1 em::after{
+    content:"";position:absolute;left:0;right:0;bottom:6px;height:12px;
+    background:var(--sun-soft);z-index:-1;border-radius:4px;
+  }
+  .hero p.lead{font-size:1.18rem;color:var(--ink-soft);margin-bottom:34px;max-width:520px}
+  .hero-cta{display:flex;gap:16px;flex-wrap:wrap;align-items:center}
+  .hero-trust{margin-top:30px;display:flex;align-items:center;gap:14px;color:var(--ink-soft);font-size:.95rem;font-weight:600}
+  .stars{color:var(--sun);font-size:1.1rem;letter-spacing:2px}
+
+  .hero-card{
+    background:var(--white);border-radius:var(--radius);padding:34px;
+    box-shadow:var(--shadow);position:relative;
+  }
+  .hero-card::before{
+    content:"🧺";position:absolute;top:-26px;right:28px;font-size:2.6rem;
+    filter:drop-shadow(0 6px 8px rgba(0,0,0,.12));
+  }
+  .hero-card h3{font-size:1.35rem;margin-bottom:6px}
+  .hero-card .sub{color:var(--ink-soft);font-size:.95rem;margin-bottom:22px}
+  .step{display:flex;gap:16px;align-items:flex-start;padding:14px 0;border-bottom:1px dashed var(--cream-deep)}
+  .step:last-child{border-bottom:none}
+  .step .num{
+    flex-shrink:0;width:34px;height:34px;border-radius:50%;
+    background:var(--cream-deep);color:var(--sky-deep);font-weight:700;
+    display:grid;place-items:center;font-family:'Fraunces',serif;
+  }
+  .step strong{display:block;font-size:1.02rem}
+  .step span{color:var(--ink-soft);font-size:.92rem}
+
+  /* ---------- Section base ---------- */
+  section{padding:90px 0}
+  .section-head{text-align:center;max-width:620px;margin:0 auto 60px}
+  .section-head .tag{
+    color:var(--leaf);font-weight:700;letter-spacing:.1em;text-transform:uppercase;
+    font-size:.82rem;display:block;margin-bottom:14px;
+  }
+  .section-head h2{font-size:clamp(2rem,4vw,2.8rem);margin-bottom:14px}
+  .section-head p{color:var(--ink-soft);font-size:1.08rem}
+
+  /* ---------- Services ---------- */
+  .services{background:var(--white)}
+  .service-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:28px}
+  .service-card{
+    background:var(--cream);border-radius:var(--radius);padding:38px 32px;
+    border:1px solid var(--cream-deep);transition:transform .22s ease, box-shadow .22s ease;
+    position:relative;overflow:hidden;
+  }
+  .service-card:hover{transform:translateY(-8px);box-shadow:var(--shadow)}
+  .service-card .icon{
+    width:60px;height:60px;border-radius:18px;display:grid;place-items:center;
+    font-size:1.8rem;margin-bottom:22px;
+  }
+  .ic-sky{background:#D6EBF2}.ic-sun{background:var(--sun-soft)}.ic-leaf{background:#E1ECD4}
+  .service-card h3{font-size:1.4rem;margin-bottom:12px}
+  .service-card p{color:var(--ink-soft);font-size:.98rem;margin-bottom:18px}
+  .service-card ul{list-style:none;font-size:.94rem;color:var(--ink-soft)}
+  .service-card li{padding:5px 0 5px 24px;position:relative}
+  .service-card li::before{content:"✓";position:absolute;left:0;color:var(--leaf);font-weight:700}
+
+  /* ---------- Why us ---------- */
+  .why{background:var(--cream)}
+  .why-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:24px;margin-top:20px}
+  .why-card{text-align:center;padding:30px 22px;background:var(--white);border-radius:var(--radius);box-shadow:0 10px 26px -20px rgba(39,49,59,.4)}
+  .why-card .emoji{font-size:2.2rem;display:block;margin-bottom:14px}
+  .why-card h3{font-size:1.12rem;margin-bottom:8px}
+  .why-card p{color:var(--ink-soft);font-size:.92rem}
+
+  /* ---------- How it works ---------- */
+  .how{background:var(--white)}
+  .how-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:40px;counter-reset:step}
+  .how-item{text-align:center;position:relative}
+  .how-item .circle{
+    width:80px;height:80px;margin:0 auto 22px;border-radius:50%;
+    background:linear-gradient(150deg,var(--sky),var(--sky-deep));
+    color:var(--white);display:grid;place-items:center;font-size:2rem;
+    box-shadow:0 14px 28px -14px var(--sky-deep);
+  }
+  .how-item h3{font-size:1.25rem;margin-bottom:10px}
+  .how-item p{color:var(--ink-soft);font-size:.96rem;max-width:280px;margin:0 auto}
+
+  /* ---------- Testimonials ---------- */
+  .reviews{background:var(--cream)}
+  .review-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:26px}
+  .review{background:var(--white);border-radius:var(--radius);padding:32px;box-shadow:0 12px 30px -24px rgba(39,49,59,.5)}
+  .review .stars{margin-bottom:14px;display:block}
+  .review p{font-style:italic;color:var(--ink);margin-bottom:20px;font-size:1rem}
+  .review .who{display:flex;align-items:center;gap:12px}
+  .review .av{
+    width:44px;height:44px;border-radius:50%;background:var(--cream-deep);
+    display:grid;place-items:center;font-weight:700;color:var(--sky-deep);font-family:'Fraunces',serif;
+  }
+  .review .who strong{display:block;font-size:.98rem}
+  .review .who span{color:var(--ink-soft);font-size:.85rem}
+
+  /* ---------- CTA banner ---------- */
+  .cta-band{
+    background:linear-gradient(135deg,var(--sky-deep),var(--sky));
+    color:var(--white);text-align:center;border-radius:var(--radius);
+    padding:64px 32px;position:relative;overflow:hidden;
+  }
+  .cta-band::after{content:"🫧";position:absolute;font-size:9rem;opacity:.12;right:-10px;bottom:-30px}
+  .cta-band h2{font-size:clamp(2rem,4vw,2.7rem);margin-bottom:14px;color:var(--white)}
+  .cta-band p{font-size:1.1rem;opacity:.92;margin-bottom:30px}
+  .cta-band .btn{background:var(--white);color:var(--sky-deep)}
+  .cta-band .btn:hover{background:var(--cream)}
+
+  /* ---------- Contact ---------- */
+  .contact{background:var(--white)}
+  .contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:50px;align-items:start}
+  .contact-info h2{font-size:clamp(1.9rem,3.5vw,2.5rem);margin-bottom:18px}
+  .contact-info p.intro{color:var(--ink-soft);margin-bottom:30px;font-size:1.05rem}
+  .info-row{display:flex;align-items:center;gap:16px;padding:16px 0;border-bottom:1px solid var(--cream-deep)}
+  .info-row .ico{
+    width:46px;height:46px;border-radius:14px;background:var(--cream);
+    display:grid;place-items:center;font-size:1.3rem;flex-shrink:0;
+  }
+  .info-row strong{display:block;font-size:1.02rem}
+  .info-row span,.info-row a{color:var(--ink-soft);font-size:.96rem}
+  .info-row a:hover{color:var(--sky-deep)}
+  .contact-form{background:var(--cream);border-radius:var(--radius);padding:38px;border:1px solid var(--cream-deep)}
+  .contact-form h3{font-size:1.4rem;margin-bottom:6px}
+  .contact-form .fsub{color:var(--ink-soft);font-size:.94rem;margin-bottom:24px}
+  .field{margin-bottom:18px}
+  .field label{display:block;font-weight:700;font-size:.9rem;margin-bottom:7px}
+  .field input,.field select,.field textarea{
+    width:100%;padding:13px 16px;border:1px solid var(--cream-deep);
+    border-radius:12px;font-family:inherit;font-size:.98rem;background:var(--white);
+    color:var(--ink);transition:border-color .2s, box-shadow .2s;
+  }
+  .field input:focus,.field select:focus,.field textarea:focus{
+    outline:none;border-color:var(--sky);box-shadow:0 0 0 3px rgba(62,143,176,.16)
+  }
+  .field textarea{resize:vertical;min-height:96px}
+  .form-note{font-size:.84rem;color:var(--ink-soft);text-align:center;margin-top:14px}
+  .form-msg{display:none;background:#E1ECD4;color:#3F5A2C;padding:14px;border-radius:12px;text-align:center;font-weight:600;margin-bottom:18px}
+
+  /* ---------- Footer ---------- */
+  footer{background:var(--ink);color:#C7D0D8;padding:60px 0 30px}
+  .foot-grid{display:grid;grid-template-columns:2fr 1fr 1fr;gap:40px;margin-bottom:40px}
+  footer .logo{color:var(--white);margin-bottom:14px}
+  footer p{font-size:.94rem;line-height:1.8;max-width:320px}
+  footer h4{color:var(--white);font-family:'Fraunces',serif;font-size:1.1rem;margin-bottom:16px}
+  footer ul{list-style:none}
+  footer li{margin-bottom:10px;font-size:.94rem}
+  footer li a:hover{color:var(--sun)}
+  .foot-bottom{border-top:1px solid #3A444E;padding-top:24px;text-align:center;font-size:.86rem;color:#8C97A1}
+
+  /* ---------- Reveal animation ---------- */
+  .reveal{opacity:0;transform:translateY(28px);transition:opacity .7s ease, transform .7s ease}
+  .reveal.in{opacity:1;transform:none}
+
+  /* ---------- Responsive ---------- */
+  @media (max-width:900px){
+    .hero .wrap{grid-template-columns:1fr;gap:46px}
+    .service-grid,.review-grid,.how-grid{grid-template-columns:1fr}
+    .why-grid{grid-template-columns:1fr 1fr}
+    .contact-grid{grid-template-columns:1fr;gap:36px}
+    .foot-grid{grid-template-columns:1fr;gap:30px}
+    .nav-links{
+      position:fixed;top:75px;left:0;right:0;background:var(--cream);
+      flex-direction:column;gap:0;padding:10px 0;
+      box-shadow:var(--shadow);transform:translateY(-130%);transition:transform .35s ease;
+    }
+    .nav-links.open{transform:translateY(0)}
+    .nav-links a{padding:15px 24px;width:100%;border-bottom:1px solid var(--cream-deep)}
+    .nav-links .btn{margin:14px 24px;text-align:center}
+    .nav-toggle{display:block}
+  }
+  @media (max-width:520px){
+    .why-grid{grid-template-columns:1fr}
+    section{padding:64px 0}
+    .hero{padding:60px 0 80px}
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <nav class="nav">
+    <a href="#" class="logo"><span class="bubble">🧺</span>[Your Business Name]</a>
+    <div class="nav-links" id="navLinks">
+      <a href="#services">Services</a>
+      <a href="#why">Why Us</a>
+      <a href="#how">How It Works</a>
+      <a href="#reviews">Reviews</a>
+      <a href="#contact">Contact</a>
+      <a href="#contact" class="btn">Schedule Pickup</a>
+    </div>
+    <button class="nav-toggle" id="navToggle" aria-label="Menu">☰</button>
+  </nav>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="wrap">
+    <div class="reveal">
+      <span class="hero-eyebrow">Family-owned & locally loved</span>
+      <h1>Laundry day, <em>finally</em> off your to-do list.</h1>
+      <p class="lead">Fresh, neatly folded clothes without lifting a finger. We pick up, we clean, we deliver — right to your door in [Your City].</p>
+      <div class="hero-cta">
+        <a href="#contact" class="btn">Schedule a Pickup</a>
+        <a href="tel:+15551234567" class="btn btn-ghost">📞 (555) 123-4567</a>
+      </div>
+      <div class="hero-trust">
+        <span class="stars">★★★★★</span>
+        <span>Trusted by 500+ neighbors since [Year]</span>
+      </div>
+    </div>
+    <div class="hero-card reveal">
+      <h3>How easy is it?</h3>
+      <p class="sub">Three steps and you're done.</p>
+      <div class="step">
+        <div class="num">1</div>
+        <div><strong>Schedule a pickup</strong><span>Call or book online in under a minute.</span></div>
+      </div>
+      <div class="step">
+        <div class="num">2</div>
+        <div><strong>We clean it with care</strong><span>Washed, folded, or dry cleaned — your way.</span></div>
+      </div>
+      <div class="step">
+        <div class="num">3</div>
+        <div><strong>Delivered back fresh</strong><span>Often within 48 hours, right to your door.</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section class="services" id="services">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="tag">What We Do</span>
+      <h2>Services made simple</h2>
+      <p>Whatever your laundry needs, we've got a friendly team and a careful process to handle it.</p>
+    </div>
+    <div class="service-grid">
+      <div class="service-card reveal">
+        <div class="icon ic-sky">🧺</div>
+        <h3>Wash &amp; Fold</h3>
+        <p>Everyday laundry done right — washed, dried, and neatly folded so it's ready to put away.</p>
+        <ul>
+          <li>Sorted by color &amp; fabric</li>
+          <li>Gentle, quality detergents</li>
+          <li>Priced by the pound</li>
+        </ul>
+      </div>
+      <div class="service-card reveal">
+        <div class="icon ic-sun">👔</div>
+        <h3>Dry Cleaning</h3>
+        <p>Professional care for the pieces that matter — suits, dresses, delicates, and more.</p>
+        <ul>
+          <li>Expert stain treatment</li>
+          <li>Pressed &amp; ready to wear</li>
+          <li>Garment-safe process</li>
+        </ul>
+      </div>
+      <div class="service-card reveal">
+        <div class="icon ic-leaf">🚚</div>
+        <h3>Pickup &amp; Delivery</h3>
+        <p>Skip the trip entirely. We come to you on a schedule that fits your week.</p>
+        <ul>
+          <li>Free local pickup &amp; drop-off</li>
+          <li>Contactless option available</li>
+          <li>Flexible scheduling</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHY US -->
+<section class="why" id="why">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="tag">Why Choose Us</span>
+      <h2>Your neighbors trust us — here's why</h2>
+      <p>We treat your clothes like our own, and we treat you like a neighbor (because you are one).</p>
+    </div>
+    <div class="why-grid">
+      <div class="why-card reveal"><span class="emoji">💛</span><h3>Family-Owned</h3><p>Local people who genuinely care about doing right by you.</p></div>
+      <div class="why-card reveal"><span class="emoji">⏱️</span><h3>Fast Turnaround</h3><p>Most orders back to you within 48 hours.</p></div>
+      <div class="why-card reveal"><span class="emoji">🧴</span><h3>Gentle Care</h3><p>Quality products that are kind to fabrics and skin.</p></div>
+      <div class="why-card reveal"><span class="emoji">✅</span><h3>Satisfaction First</h3><p>Not happy? We'll make it right, no hassle.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- HOW IT WORKS -->
+<section class="how" id="how">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="tag">Simple Process</span>
+      <h2>Clean clothes in 3 easy steps</h2>
+      <p>No more dragging laundry around. Here's all it takes.</p>
+    </div>
+    <div class="how-grid">
+      <div class="how-item reveal"><div class="circle">📅</div><h3>1. Book It</h3><p>Schedule a pickup by phone or through the form below — takes a minute.</p></div>
+      <div class="how-item reveal"><div class="circle">🧼</div><h3>2. We Handle It</h3><p>We collect, sort, and clean everything with care and attention.</p></div>
+      <div class="how-item reveal"><div class="circle">🏠</div><h3>3. Enjoy It</h3><p>Fresh, folded laundry delivered back to your doorstep.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- REVIEWS -->
+<section class="reviews" id="reviews">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="tag">Happy Customers</span>
+      <h2>Loved by the neighborhood</h2>
+      <p>A few kind words from people who got their weekends back.</p>
+    </div>
+    <div class="review-grid">
+      <div class="review reveal">
+        <span class="stars">★★★★★</span>
+        <p>"Honestly a lifesaver. The pickup is so easy and my clothes come back perfectly folded every single time."</p>
+        <div class="who"><div class="av">SM</div><div><strong>Sarah M.</strong><span>Wash &amp; Fold customer</span></div></div>
+      </div>
+      <div class="review reveal">
+        <span class="stars">★★★★★</span>
+        <p>"They got a stain out of my favorite blazer I thought was ruined. Friendly, fast, and fairly priced."</p>
+        <div class="who"><div class="av">DT</div><div><strong>David T.</strong><span>Dry Cleaning customer</span></div></div>
+      </div>
+      <div class="review reveal">
+        <span class="stars">★★★★★</span>
+        <p>"Reliable and genuinely nice people. It feels good supporting a local family business that does great work."</p>
+        <div class="who"><div class="av">LR</div><div><strong>Lena R.</strong><span>Pickup &amp; Delivery customer</span></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA BAND -->
+<section>
+  <div class="wrap">
+    <div class="cta-band reveal">
+      <h2>Ready to skip laundry day?</h2>
+      <p>Schedule your first pickup today — your future self will thank you.</p>
+      <a href="#contact" class="btn">Get Started</a>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="contact" id="contact">
+  <div class="wrap">
+    <div class="contact-grid">
+      <div class="contact-info reveal">
+        <h2>Get in touch</h2>
+        <p class="intro">Questions or ready to book? We'd love to hear from you. Reach out and a real person will get back quickly.</p>
+        <div class="info-row">
+          <div class="ico">📞</div>
+          <div><strong>Call or Text</strong><a href="tel:+15551234567">(555) 123-4567</a></div>
+        </div>
+        <div class="info-row">
+          <div class="ico">✉️</div>
+          <div><strong>Email</strong><a href="mailto:hello@yourbusiness.com">hello@yourbusiness.com</a></div>
+        </div>
+        <div class="info-row">
+          <div class="ico">📍</div>
+          <div><strong>Service Area</strong><span>[Your City] &amp; surrounding neighborhoods</span></div>
+        </div>
+        <div class="info-row">
+          <div class="ico">🕐</div>
+          <div><strong>Hours</strong><span>Mon–Sat: 7am–7pm · Sun: Closed</span></div>
+        </div>
+      </div>
+      <div class="contact-form reveal">
+        <h3>Schedule a Pickup</h3>
+        <p class="fsub">Fill this out and we'll confirm your pickup window.</p>
+        <div class="form-msg" id="formMsg">Thanks! We'll be in touch shortly to confirm your pickup. 🧺</div>
+        <div class="field">
+          <label for="name">Name</label>
+          <input type="text" id="name" placeholder="Your name">
+        </div>
+        <div class="field">
+          <label for="phone">Phone</label>
+          <input type="tel" id="phone" placeholder="(555) 123-4567">
+        </div>
+        <div class="field">
+          <label for="service">Service Needed</label>
+          <select id="service">
+            <option>Wash &amp; Fold</option>
+            <option>Dry Cleaning</option>
+            <option>Pickup &amp; Delivery</option>
+            <option>Not sure — help me choose</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="msg">Anything else?</label>
+          <textarea id="msg" placeholder="Preferred pickup day, special instructions, etc."></textarea>
+        </div>
+        <button class="btn" style="width:100%" id="submitBtn">Request Pickup</button>
+        <p class="form-note">We'll never share your info. A real person reviews every request.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <a href="#" class="logo"><span class="bubble">🧺</span>[Your Business Name]</a>
+        <p>Friendly, reliable laundry care for [Your City]. Family-owned and proud to serve our neighbors one fresh load at a time.</p>
+      </div>
+      <div>
+        <h4>Services</h4>
+        <ul>
+          <li><a href="#services">Wash &amp; Fold</a></li>
+          <li><a href="#services">Dry Cleaning</a></li>
+          <li><a href="#services">Pickup &amp; Delivery</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Company</h4>
+        <ul>
+          <li><a href="#why">Why Us</a></li>
+          <li><a href="#reviews">Reviews</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      © <span id="year"></span> [Your Business Name]. All rights reserved. · Made with care for our community.
+    </div>
+  </div>
+</footer>
+
+<script>
+  // Mobile nav
+  const toggle=document.getElementById('navToggle');
+  const links=document.getElementById('navLinks');
+  toggle.addEventListener('click',()=>links.classList.toggle('open'));
+  links.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>links.classList.remove('open')));
+
+  // Year
+  document.getElementById('year').textContent=new Date().getFullYear();
+
+  // Scroll reveal
+  const obs=new IntersectionObserver((entries)=>{
+    entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');obs.unobserve(e.target)}});
+  },{threshold:.14});
+  document.querySelectorAll('.reveal').forEach((el,i)=>{
+    el.style.transitionDelay=(i%3*0.08)+'s';
+    obs.observe(el);
+  });
+
+  // Form (demo handler — no backend)
+  document.getElementById('submitBtn').addEventListener('click',()=>{
+    const name=document.getElementById('name').value.trim();
+    const phone=document.getElementById('phone').value.trim();
+    if(!name||!phone){alert('Please add your name and phone so we can reach you.');return;}
+    document.getElementById('formMsg').style.display='block';
+    document.getElementById('formMsg').scrollIntoView({behavior:'smooth',block:'center'});
+    ['name','phone','msg'].forEach(id=>document.getElementById(id).value='');
+  });
+</script>
+
+</body>
+</html>
